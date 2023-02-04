@@ -1,43 +1,78 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Applicazione ASP.NET</title>
+   
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nome dell'applicazione", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Informazioni", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contatto", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Applicazione ASP.NET</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
+    @if (ViewContext.RouteData.Values["Controller"].ToString() == "PRODOTTO")
+    {
+        <div class="d-flex flex-column main">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="~/Views/PRODOTTO/Index.cshtml">
+                        @*<img src="~/Content/Img/Prova_logo_nik.png" alt="Logo" width="60" class="d-inline-block align-text-top" />*@
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+
+                        <ul class="navbar-nav">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item">@Html.ActionLink("🖐 ESCI", "LogOut", "Home") </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">@Html.ActionLink("🔒 ENTRA", "Login", "Home") </li>
+                            }
+
+                            @if (User.Identity.Name == "Admin")
+                            {
+
+                                <li class="nav-item">@Html.ActionLink("AREA PRIVATA", "ListaAdmin", "PRODOTTO")</li>
+
+                            }
+                            <li class="nav-item">@Html.ActionLink("HOME", "Index", "PRODOTTO")</li>
+
+                            @if (User.Identity.Name == "Admin")
+                            {
+
+                                <li class="nav-item">@Html.ActionLink("ORDINI", "Index", "Ordine")</li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">@Html.ActionLink("ORDINI", "OrdineConfermato", "Ordine")</li>
+
+                            }
+                            @if (User.Identity.Name != "Admin")
+                            {
+                                <li class="nav-item">@Html.ActionLink("🛒", "Carrello", "Dettaglio")</li>
+                            }
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+        </div>  
+    }
+
+        <div class="container body-content">
+            @RenderBody()
+        </div>
+        @*<footer class="fto">
+            <p>&copy; @DateTime.Now.Year - Applicazione ASP.NET</p>
+        </footer>*@
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
 </html>
