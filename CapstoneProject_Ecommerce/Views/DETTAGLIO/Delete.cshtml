@@ -1,0 +1,71 @@
+﻿@model CapstoneProject_Ecommerce.Models.DETTAGLIO
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+   
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ORDINE.Confermato)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ORDINE.Confermato)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRODOTTO.NomeProdotto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRODOTTO.NomeProdotto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TAGLIE.TagliaProdotto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TAGLIE.TagliaProdotto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.USER.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.USER.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantita)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantita)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrezzoTotale)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrezzoTotale)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Torna al carrello", "Carrello")
+        </div>
+    }
+</div>

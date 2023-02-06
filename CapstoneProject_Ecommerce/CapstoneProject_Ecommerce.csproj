@@ -129,7 +129,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DETTAGLIOController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ORDINEController.cs" />
     <Compile Include="Controllers\PRODOTTOController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -137,6 +139,10 @@
     <Compile Include="Migrations\202302041720209_MigrationDBcapstone.cs" />
     <Compile Include="Migrations\202302041720209_MigrationDBcapstone.designer.cs">
       <DependentUpon>202302041720209_MigrationDBcapstone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302060931079_addColumnIdProdotto.cs" />
+    <Compile Include="Migrations\202302060931079_addColumnIdProdotto.designer.cs">
+      <DependentUpon>202302060931079_addColumnIdProdotto.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DETTAGLIO.cs" />
@@ -227,6 +233,15 @@
     <Content Include="Views\PRODOTTO\ListaAdmin.cshtml" />
     <Content Include="Views\PRODOTTO\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\DETTAGLIO\Delete.cshtml" />
+    <Content Include="Views\DETTAGLIO\Edit.cshtml" />
+    <Content Include="Views\DETTAGLIO\Index.cshtml" />
+    <Content Include="Views\DETTAGLIO\Carrello.cshtml" />
+    <Content Include="Views\ORDINE\Create.cshtml" />
+    <Content Include="Views\ORDINE\Delete.cshtml" />
+    <Content Include="Views\ORDINE\Edit.cshtml" />
+    <Content Include="Views\ORDINE\Index.cshtml" />
+    <Content Include="Views\ORDINE\OrdineConfermato.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -239,6 +254,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202302041720209_MigrationDBcapstone.resx">
       <DependentUpon>202302041720209_MigrationDBcapstone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302060931079_addColumnIdProdotto.resx">
+      <DependentUpon>202302060931079_addColumnIdProdotto.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

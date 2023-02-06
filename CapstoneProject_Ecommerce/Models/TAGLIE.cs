@@ -5,6 +5,8 @@ namespace CapstoneProject_Ecommerce.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Drawing.Design;
+    using System.Web.UI.WebControls;
 
     [Table("TAGLIE")]
     public partial class TAGLIE
@@ -18,11 +20,17 @@ namespace CapstoneProject_Ecommerce.Models
         [Key]
         public int IdTaglie { get; set; }
 
+        public int IdProdotto { get; set; }
+
         [Required]
         [StringLength(1)]
+        [Display(Name = "Taglia")]
         public string TagliaProdotto { get; set; }
 
+        [Display(Name = "Quantità")]
         public int QuantitaTaglia { get; set; }
+
+        
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DETTAGLIO> DETTAGLIO { get; set; }

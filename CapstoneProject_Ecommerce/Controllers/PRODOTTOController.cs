@@ -6,7 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using CapstoneProject_Ecommerce.Models;
+using Newtonsoft.Json.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CapstoneProject_Ecommerce.Controllers
     
@@ -20,6 +23,14 @@ namespace CapstoneProject_Ecommerce.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
+            List<SelectListItem> idTaglia = new List<SelectListItem>();
+            SelectListItem item1 = new SelectListItem { Text = "S", Value = "1" };
+            SelectListItem item2 = new SelectListItem { Text = "M", Value = "2" };
+            SelectListItem item3 = new SelectListItem { Text = "L", Value = "3" };
+            idTaglia.Add(item1);
+            idTaglia.Add(item2);
+            idTaglia.Add(item3);
+            ViewBag.IdTaglia = idTaglia;
             return View(db.PRODOTTO.ToList());
         }
 
@@ -54,13 +65,31 @@ namespace CapstoneProject_Ecommerce.Controllers
         // Per altri dettagli, vedere https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( PRODOTTO pRODOTTO, HttpPostedFileBase File)
+        public ActionResult Create(PRODOTTO pRODOTTO, HttpPostedFileBase File, int Quantità, int QuantitàM, int QuantitàL)
         {
             if (ModelState.IsValid)
             {
                 File.SaveAs(Server.MapPath("/Content/Img/" + File.FileName));
                 pRODOTTO.Foto = File.FileName;
                 db.PRODOTTO.Add(pRODOTTO);
+                db.SaveChanges();
+                TAGLIE t = new TAGLIE();
+                t.IdProdotto = pRODOTTO.IdProdotto;
+                t.TagliaProdotto = "S";
+                t.QuantitaTaglia = Quantità;
+                db.TAGLIE.Add(t);
+                db.SaveChanges();
+                TAGLIE M = new TAGLIE();
+                M.IdProdotto = pRODOTTO.IdProdotto;
+                M.TagliaProdotto = "M";
+                M.QuantitaTaglia = QuantitàM;
+                db.TAGLIE.Add(M);
+                db.SaveChanges();
+                TAGLIE L = new TAGLIE();
+                L.IdProdotto = pRODOTTO.IdProdotto;
+                L.TagliaProdotto = "L";
+                L.QuantitaTaglia = QuantitàL;
+                db.TAGLIE.Add(L);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

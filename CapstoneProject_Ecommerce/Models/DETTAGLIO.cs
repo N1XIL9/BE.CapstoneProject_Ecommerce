@@ -20,7 +20,11 @@ namespace CapstoneProject_Ecommerce.Models
 
         public int IdProdotto { get; set; }
 
+        [Display(Name ="Quantità")]
         public int Quantita { get; set; }
+
+        [Display(Name = "Totale")]
+        [DisplayFormat(DataFormatString = "{0:C2}")]
 
         public decimal PrezzoTotale { get; set; }
 

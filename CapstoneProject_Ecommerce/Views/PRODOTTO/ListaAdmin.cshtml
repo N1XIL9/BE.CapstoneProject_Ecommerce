@@ -5,7 +5,7 @@
 }
 
 <h2>AMMINISTRAZIONE</h2>
-<div class="container-fluid" id="bgMenu">
+
 
     <div class="container" id="areaRiservata">
 
@@ -14,6 +14,9 @@
         </p>
         <table class="table">
             <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdProdotto)
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.NomeProdotto)
                 </th>
@@ -24,7 +27,7 @@
                     @Html.DisplayNameFor(model => model.Prezzo)
                 </th>
                 <th>
-                    @*@Html.DisplayNameFor(model => model.Foto)*@
+                    @Html.DisplayNameFor(model => model.Foto)
                 </th>
                 <th></th>
             </tr>
@@ -32,6 +35,9 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdProdotto)
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.NomeProdotto)
                     </td>
@@ -54,4 +60,3 @@
 
         </table>
     </div>
-</div>

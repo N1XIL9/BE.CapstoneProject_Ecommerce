@@ -25,9 +25,13 @@ namespace CapstoneProject_Ecommerce.Models
         public string Confermato { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime DataOrdine { get; set; }
+        [Display(Name = "Data Ordine")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm:ss}")]
+        public DateTime DataOrdine { get; set; } = DateTime.UtcNow;
 
         [Column(TypeName = "money")]
+        [Display(Name = "Totale")]
+        [DisplayFormat(DataFormatString = "{0:C2}")]
         public decimal ImportoTotale { get; set; }
 
         [Required]

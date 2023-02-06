@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CapstoneProject_Ecommerce.Models.ORDINE>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>DETTAGLIO ORDINE</h2>
+
+<p>
+    @Html.ActionLink("Nuovo ordine", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.USER.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Confermato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataOrdine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImportoTotale)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Evaso)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.USER.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Confermato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataOrdine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImportoTotale)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Evaso)
+        </td>
+        <td>
+           @Html.ActionLink("Modifica", "Edit", new { id=item.IdOrdine }) |          
+            @Html.ActionLink("Elimina", "Delete", new { id = item.IdOrdine })
+
+        </td>
+    </tr>
+}
+
+</table>
