@@ -106,9 +106,16 @@ namespace CapstoneProject_Ecommerce.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             DETTAGLIO d = db.DETTAGLIO.Find(id);
-            
-            
-                return View(d);
+            List<SelectListItem> idTaglia = new List<SelectListItem>();
+            SelectListItem item1 = new SelectListItem { Text = "S", Value = "1" };
+            SelectListItem item2 = new SelectListItem { Text = "M", Value = "2" };
+            SelectListItem item3 = new SelectListItem { Text = "L", Value = "3" };
+            idTaglia.Add(item1);
+            idTaglia.Add(item2);
+            idTaglia.Add(item3);
+            ViewBag.IdTaglia = idTaglia;
+
+            return View(d);
                    
         }
 
@@ -124,7 +131,7 @@ namespace CapstoneProject_Ecommerce.Controllers
                 USER utente = db.USER.Where(x => x.Username == User.Identity.Name).FirstOrDefault();
                 DETTAGLIO dettaglio = db.DETTAGLIO.Find(d.IdDettaglio);
                 d.PrezzoTotale = dettaglio.PRODOTTO.Prezzo * d.Quantita;
-           
+                 
 
                 d.IdUser = utente.IdUser;
                 ModelDBcontext db1 = new ModelDBcontext();

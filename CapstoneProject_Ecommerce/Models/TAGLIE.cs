@@ -6,6 +6,7 @@ namespace CapstoneProject_Ecommerce.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
     using System.Drawing.Design;
+    using System.Web.Mvc;
     using System.Web.UI.WebControls;
 
     [Table("TAGLIE")]
@@ -18,6 +19,7 @@ namespace CapstoneProject_Ecommerce.Models
         }
 
         [Key]
+        [Display(Name = "Taglia")]
         public int IdTaglie { get; set; }
 
         public int IdProdotto { get; set; }
@@ -29,8 +31,9 @@ namespace CapstoneProject_Ecommerce.Models
 
         [Display(Name = "Quantità")]
         public int QuantitaTaglia { get; set; }
+         
 
-        
+    
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DETTAGLIO> DETTAGLIO { get; set; }

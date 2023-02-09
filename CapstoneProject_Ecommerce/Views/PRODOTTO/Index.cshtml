@@ -4,14 +4,14 @@
     ViewBag.Title = "Index";
 }
 
-<div class="flexCard container">
+<div class="flexCard ">
 
     @foreach (var item in Model)
     {
 
         <div class="card fade-in-right" style="width: 18rem;">
 
-            <img src="~/Content/img/@Html.DisplayFor(modelItem => item.Foto)" />
+            <img class="ImgCard" src="~/Content/img/@Html.DisplayFor(modelItem => item.Foto)" />
             <div class="card-body">
                 <h5 class="card-title">@Html.DisplayFor(modelItem => item.NomeProdotto)</h5>
             </div>
@@ -19,18 +19,28 @@
                 <p class="card-text">@Html.DisplayFor(modelItem => item.Descrizione)</p>
             </div>
 
-            <div class="card-text qta">
-                @Html.DropDownList("IdTaglia", null, htmlAttributes: new { @class = "form-control taglia" })
-                <h5 class="card-title quantita"><input type="number" /></h5>
+
+            <div class="ContFlex">
+                <div class="card-text">
+                    @Html.DropDownList("IdTaglia", null, htmlAttributes: new { @class = "form-control taglia" })
+                </div>
+
+                <div class="qta">
+                    <h5 class="card-title quantita"><input class="InpCard" type="number" /></h5>
+                </div>
             </div>
+                <p class="GuidaTaglie">
+                    @Html.ActionLink("Guida alle taglie", "GuidaAlleTaglie")
+                </p>
+
 
             <div class="card-text">
                 <h5 class="card-title">@Html.DisplayFor(modelItem => item.Prezzo)</h5>
             </div>
 
 
-            <div class="btn btn-primary" id="contBtn">
-                <a href="#" data-id="@item.IdProdotto" class="OrdinaBtn">ORDINA</a>
+            <div class="btn" id="contBtn" style="background-color: #f90000b3">
+                <a href="#" data-id="@item.IdProdotto" class="OrdinaBtn">AGGIUNGI AL CARRELLO</a>
             </div>
         </div>
     }
@@ -41,8 +51,8 @@
             var baseUrl = "/Dettaglio/Index/";
             $(".OrdinaBtn").click(function () {
                 var id = $(this).data("id");
-                var taglia = $(this).parent("#contBtn").siblings(".qta").children(".taglia").children("option:selected").text();
-                var quantity = $(this).parent("#contBtn").siblings(".qta").children(".quantita").children("input").val();
+                var taglia = $(this).parent("#contBtn").siblings(".ContFlex").children(".card-text").children(".taglia").children("option:selected").text();
+                var quantity = $(this).parent("#contBtn").siblings(".ContFlex").children(".qta").children(".quantita").children("input").val();
                
 
                 location.href = baseUrl + "?id=" + id + "&quantity=" + quantity + "&taglia=" + taglia;

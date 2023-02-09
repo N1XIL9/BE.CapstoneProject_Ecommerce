@@ -6,73 +6,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Applicazione ASP.NET</title>
     @Scripts.Render("~/bundles/jquery")
-
+    @Scripts.Render("~/bundles/bootstrap")
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
 
     @*@if (ViewContext.RouteData.Values["Controller"].ToString() == "PRODOTTO")
-    {*@
-        <div class="d-flex flex-column main">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="~/Views/PRODOTTO/Index.cshtml">
-                        @*<img src="~/Content/Img/Prova_logo_nik.png" alt="Logo" width="60" class="d-inline-block align-text-top" />*@
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
+        {*@
+    <div class="d-flex flex-column main">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="~/Views/PRODOTTO/Index.cshtml">
+                    @*<img src="~/Content/Img/Prova_logo_nik.png" alt="Logo" width="60" class="d-inline-block align-text-top" />*@
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
 
-                        <ul class="navbar-nav">
-                            @if (User.Identity.IsAuthenticated)
-                            {
-                                <li class="nav-item">@Html.ActionLink("🖐 ESCI", "LogOut", "Home") </li>
-                            }
-                            else
-                            {
-                                <li class="nav-item">@Html.ActionLink("🔒 ENTRA", "Login", "Home") </li>
-                            }
+                    <ul class="navbar-nav">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">@Html.ActionLink("🖐 ESCI", "LogOut", "Home") </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">@Html.ActionLink("🔒 ENTRA", "Login", "Home") </li>
+                        }
 
-                            @if (User.Identity.Name == "Admin")
-                            {
+                        @if (User.Identity.Name == "Admin")
+                        {
 
-                                <li class="nav-item">@Html.ActionLink("AREA PRIVATA", "ListaAdmin", "PRODOTTO")</li>
+                            <li class="nav-item">@Html.ActionLink("AREA PRIVATA", "ListaAdmin", "PRODOTTO")</li>
 
-                            }
-                            <li class="nav-item">@Html.ActionLink("HOME", "Index", "PRODOTTO")</li>
+                        }
+                        <li class="nav-item">@Html.ActionLink("HOME", "Index", "PRODOTTO")</li>
 
-                            @if (User.Identity.Name == "Admin")
-                            {
+                        @if (User.Identity.Name == "Admin")
+                        {
 
-                                <li class="nav-item">@Html.ActionLink("ORDINI", "Index", "Ordine")</li>
-                            }
-                            else
-                            {
-                                <li class="nav-item">@Html.ActionLink("ORDINI", "OrdineConfermato", "Ordine")</li>
+                            <li class="nav-item">@Html.ActionLink("ORDINI", "Index", "Ordine")</li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">@Html.ActionLink("ORDINI", "OrdineConfermato", "Ordine")</li>
 
-                            }
-                            @if (User.Identity.Name != "Admin")
-                            {
-                                <li class="nav-item">@Html.ActionLink("🛒", "Carrello", "Dettaglio")</li>
-                            }
-                        </ul>
+                        }
 
-                    </div>
+                        <li class="nav-item">@Html.ActionLink("GUIDA ALLE TAGLIE", "GuidaAlleTaglie", "PRODOTTO")</li>
+
+                        @if (User.Identity.Name != "Admin")
+                        {
+                            <li class="nav-item">@Html.ActionLink("🛒", "Carrello", "DETTAGLIO")</li>
+                        }
+                    </ul>
+
                 </div>
-            </nav>
-        </div>  
+            </div>
+        </nav>
+    </div>
     @*}*@
 
-        <div class="container body-content">
-            @RenderBody()
-        </div>
-        @*<footer class="fto">
-            <p>&copy; @DateTime.Now.Year - Applicazione ASP.NET</p>
-        </footer>*@
+    <div>
+        @RenderBody()
+    </div>
 
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-    </body>
+    @*<section class="footer bg-secondary pt-10 pb-2 mt-5">
+        <div class="container">
+            <div class="footer-newsletter">
+                <h4 class="title text-center fw-bold text-uppercase text-black px-1 pt-3">
+                    Iscriviti alla newsletter
+                </h4>
+                <div class="d-flex align-items-start px-1 px-sm-5 py-2">
+                    <div class="col-sm-10 order-2 order-sm-1">
+                        <p class="text-black text-start">
+                            Se ti iscrivi ti regaleremo un <b>buono sconto di € 5</b> * che potrai utilizzare subito per provare i nostri fantastici prodotti biologici e naturali (* il buono sconto vale per 15 giorni per un acquisto minimo di € 50 di prodotti, spedizioni escluse).
+                        </p>
+                    </div>
+                    <div class="col-sm-2 order-1 order-sm-2">
+                        <span class="d-block text-center">
+                            <i class="mdi mdi-email text-black"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="px-1 px-sm-5 py-2">
+                    <form action="/it/newsletter">
+                        <div class="single-form form-default row">
+                            <div class="form-input col-md-5">
+                                <input type="text" name="nome" placeholder="Nome">
+                                <i class="mdi mdi-account"></i>
+                            </div>
+                            <div class="form-input col-md-5">
+                                <input id="footer-newsletter-address" name="femail" type="email" placeholder="Indirizzo email...">
+                                <i class="mdi mdi-email-outline"></i>
+                            </div>
+                            <div class="form-input col-md-2">
+                                <button class="main-btn secondary-btn d-block">
+                                    ISCRIVITI <span class="mdi mdi-send"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>*@
+
+    <footer class="fto">
+        <p>&copy; @DateTime.Now.Year - Applicazione ASP.NET</p>
+    </footer>
+
+    @RenderSection("scripts", required: false)
+</body>
 </html>

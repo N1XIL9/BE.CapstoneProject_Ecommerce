@@ -38,6 +38,11 @@ namespace CapstoneProject_Ecommerce.Controllers
         {
             return View(db.PRODOTTO.ToList());
         }
+        [AllowAnonymous]
+        public ActionResult GuidaAlleTaglie()
+        {
+            return View();
+        }
 
         // GET: PRODOTTO/Details/5
         public ActionResult Details(int? id)
@@ -57,6 +62,7 @@ namespace CapstoneProject_Ecommerce.Controllers
         // GET: PRODOTTO/Create
         public ActionResult Create()
         {
+            
             return View();
         }
 

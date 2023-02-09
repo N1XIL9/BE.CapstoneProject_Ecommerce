@@ -38,12 +38,11 @@ namespace CapstoneProject_Ecommerce.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ORDINE oRDINE = db.ORDINE.Find(id);
-            if (oRDINE == null)
-            {
-                return HttpNotFound();
-            }
-            return View(oRDINE);
+            
+            List<DETTAGLIO> d = db.DETTAGLIO.Include(x => x.ORDINE).Include(x => x.PRODOTTO).Where(x => x.IdOrdine == id).ToList();
+           
+
+            return View(d);
         }
 
         // GET: ORDINE/Create
@@ -72,6 +71,16 @@ namespace CapstoneProject_Ecommerce.Controllers
             o.Evaso = "No";
             db.ORDINE.Add(o);
             db.SaveChanges();
+            USER u = db.USER.Where(x => x.Username == User.Identity.Name).FirstOrDefault();
+            int id = u.IdUser;
+            List<DETTAGLIO> list =  db.DETTAGLIO.Where(x => x.IdUser == id && x.IdOrdine == null ).ToList();
+
+            foreach (var item in list)
+            {
+                item.IdOrdine = o.IdOrdine;
+                db.Entry(item).State = EntityState.Modified;
+                db.SaveChanges();
+            }
             return RedirectToAction("OrdineConfermato");
         }
 

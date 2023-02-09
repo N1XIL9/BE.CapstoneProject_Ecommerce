@@ -10,6 +10,7 @@ namespace CapstoneProject_Ecommerce.Controllers
 {
     public class HomeController : Controller
     {
+        private ModelDBcontext db = new ModelDBcontext();
         // GET: Home
         public ActionResult Index()
         {
@@ -37,5 +38,26 @@ namespace CapstoneProject_Ecommerce.Controllers
             return Redirect(FormsAuthentication.DefaultUrl);
         }
 
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Register([Bind(Include ="Username,Nome,Cognome,Email,Pass")] USER u) 
+        {
+                u.Ruolo = "Utente";
+            if (db.USER.Where(x => x.Username == u.Username).Count() == 0)
+            {
+
+
+                db.USER.Add(u);
+                db.SaveChanges();
+                return RedirectToAction("Login", "Home");
+            }
+            return RedirectToAction("Register", "Home");
+        }
     }
 }

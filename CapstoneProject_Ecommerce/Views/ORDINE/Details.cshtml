@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<CapstoneProject_Ecommerce.Models.DETTAGLIO>
 
 @{
-    ViewBag.Title = "Carrello";
+    ViewBag.Title = "Details";
 }
 
-<h2>Carrello</h2>
+<h2>DETTAGLIO DELL'ORDINE</h2>
 
 @*<p>
     @Html.ActionLink("Create New", "Create")
@@ -12,10 +12,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PRODOTTO.NomeProdotto)
+            @Html.DisplayNameFor(model => model.ORDINE.IdOrdine)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PRODOTTO.Descrizione)
+            @Html.DisplayNameFor(model => model.PRODOTTO.Foto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRODOTTO.NomeProdotto)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TAGLIE.TagliaProdotto)
@@ -29,16 +32,22 @@
         <th>
             @Html.DisplayNameFor(model => model.PrezzoTotale)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ORDINE.Confermato)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.PRODOTTO.NomeProdotto)
+            @Html.DisplayFor(modelItem => item.ORDINE.IdOrdine)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PRODOTTO.Descrizione)
+            <img src="~/Content/img/@Html.DisplayFor(modelItem => item.PRODOTTO.Foto)" width="100" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRODOTTO.NomeProdotto)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TAGLIE.TagliaProdotto)
@@ -53,12 +62,10 @@
             @Html.DisplayFor(modelItem => item.PrezzoTotale)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdDettaglio }) |
-          
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdDettaglio })
+            @Html.DisplayFor(modelItem => item.ORDINE.Confermato)
         </td>
+
     </tr>
 }
 
 </table>
-<btn class="btn btn-default" > <a href="/Ordine/Create">CONFERMA ORDINE</a></btn>
