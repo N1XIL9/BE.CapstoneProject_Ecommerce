@@ -48,7 +48,7 @@ namespace CapstoneProject_Ecommerce.Models
         {
 
             ModelDBcontext db = new ModelDBcontext();
-            var us = db.USER.Where(x => x.Username == username && x.Pass == password);
+            var us = db.USER.Where(x => x.Username == username && x.Pass == password).FirstOrDefault();
 
             if (us != null)
             {

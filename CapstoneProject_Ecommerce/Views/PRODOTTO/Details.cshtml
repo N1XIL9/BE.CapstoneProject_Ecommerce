@@ -4,47 +4,49 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Dettali prodotto</h2>
 
-<div>
-    <h4>PRODOTTO</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NomeProdotto)
-        </dt>
+<div class="container" id="ContEdit">
+    <div>
+        @Html.ActionLink("Lista prodotti", "ListaAdmin")
 
-        <dd>
-            @Html.DisplayFor(model => model.NomeProdotto)
-        </dd>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt class="mx-4">
+                @Html.DisplayNameFor(model => model.NomeProdotto)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descrizione)
-        </dt>
+            <dd  class="mx-4">
+                @Html.DisplayFor(model => model.NomeProdotto)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Descrizione)
-        </dd>
+            <dt  class="mx-4">
+                @Html.DisplayNameFor(model => model.Descrizione)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Prezzo)
-        </dt>
+            <dd  class="mx-4">
+                @Html.DisplayFor(model => model.Descrizione)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Prezzo)
-        </dd>
+            <dt  class="mx-4">
+                @Html.DisplayNameFor(model => model.Prezzo)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Foto)
-        </dt>
+            <dd class="mx-4">
+                @Html.DisplayFor(model => model.Prezzo)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Foto)
-        </dd>
+            <dt  class="mx-4">
+                @Html.DisplayNameFor(model => model.Foto)
+            </dt>
 
-    </dl>
+            <dd  class="mx-4">
+                @Html.DisplayFor(model => model.Foto)
+            </dd>
+
+        </dl>
+    </div>
+    <p class=" mt-5 text-center p-2" id="contBtn" style="width: 100%">
+        <a style="color:white" @Html.ActionLink("Modifica", "Edit", new { id = Model.IdProdotto })</a>
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Modifica", "Edit", new { id = Model.IdProdotto }) |
-    @Html.ActionLink("Lista prodotti", "ListaAdmin")
-</p>

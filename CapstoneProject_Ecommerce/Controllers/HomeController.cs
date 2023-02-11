@@ -29,7 +29,7 @@ namespace CapstoneProject_Ecommerce.Controllers
                 FormsAuthentication.SetAuthCookie(u.Username, false);
                 return Redirect(FormsAuthentication.DefaultUrl);
             }
-            return View();
+            return Redirect("/Home/Login");
         }
 
         public ActionResult LogOut()

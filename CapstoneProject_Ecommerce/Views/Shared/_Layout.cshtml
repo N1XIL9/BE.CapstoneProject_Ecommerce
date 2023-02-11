@@ -4,6 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/228474511d.js" crossorigin="anonymous"></script>
     <title>@ViewBag.Title - Applicazione ASP.NET</title>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -71,52 +75,48 @@
     <div>
         @RenderBody()
     </div>
+    @if (User.Identity.IsAuthenticated)
+    { 
+        <div class="footer-bg ">
+            <div class="row footer-menu">
 
-    @*<section class="footer bg-secondary pt-10 pb-2 mt-5">
-        <div class="container">
-            <div class="footer-newsletter">
-                <h4 class="title text-center fw-bold text-uppercase text-black px-1 pt-3">
-                    Iscriviti alla newsletter
-                </h4>
-                <div class="d-flex align-items-start px-1 px-sm-5 py-2">
-                    <div class="col-sm-10 order-2 order-sm-1">
-                        <p class="text-black text-start">
-                            Se ti iscrivi ti regaleremo un <b>buono sconto di € 5</b> * che potrai utilizzare subito per provare i nostri fantastici prodotti biologici e naturali (* il buono sconto vale per 15 giorni per un acquisto minimo di € 50 di prodotti, spedizioni escluse).
-                        </p>
-                    </div>
-                    <div class="col-sm-2 order-1 order-sm-2">
-                        <span class="d-block text-center">
-                            <i class="mdi mdi-email text-black"></i>
-                        </span>
-                    </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                    <h4 class="text-white">Support</h4>
+                    <ul>
+                        <li><a href="https://www.roces.com/en/terms-and-conditions-of-sale#DELIVERY ">Shipping/Returns</a></li>
+                        <li><a href="https://www.roces.com/en/manuals">Manuals</a></li>
+                        <li><a href="https://www.roces.com/en/terms-and-conditions-of-sale#GUARANTEE">Warranty</a></li>
+                        <li><a href="https://www.roces.com/en/original-product-program">Original Product Program</a></li>
+                        <li><a href="https://www.roces.com/en/ec-declarationofconformity">Declaration of Conformity</a></li>
+                        <li><a href="https://www.roces.com/en/roces-spare-parts-request">Spare Part Request</a></li>
+                        <li><a href="https://www.roces.com/en/contact">Contacts</a></li>
+                    </ul>
                 </div>
-                <div class="px-1 px-sm-5 py-2">
-                    <form action="/it/newsletter">
-                        <div class="single-form form-default row">
-                            <div class="form-input col-md-5">
-                                <input type="text" name="nome" placeholder="Nome">
-                                <i class="mdi mdi-account"></i>
-                            </div>
-                            <div class="form-input col-md-5">
-                                <input id="footer-newsletter-address" name="femail" type="email" placeholder="Indirizzo email...">
-                                <i class="mdi mdi-email-outline"></i>
-                            </div>
-                            <div class="form-input col-md-2">
-                                <button class="main-btn secondary-btn d-block">
-                                    ISCRIVITI <span class="mdi mdi-send"></span>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                    <h4 class="text-white">Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                    <ul class="inline-list social-media-icons">
+                        <li><a href="https://www.facebook.com/rocesofficial" target="_blank" rel="nofollow noopener"><i class="fa fa-facebook-square"></i></a></li>
+                        <li><a href="https://www.instagram.com/roces_official/" target="_blank" rel="nofollow noopener"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://www.youtube.com/user/roces1952" target="_blank" rel="nofollow noopener"><i class="fa fa-youtube-square"></i></a></li>
+                        <!--<li><a href="https://twitter.com/Roces_official" target="_blank" rel="nofollow noopener"><i class="fa fa-twitter-square"></i></a></li>
+                        <li><a href="https://it.pinterest.com/rocesofficial/" target="_blank" rel="nofollow noopener"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="https://it.linkedin.com/pub/roces-press-media/6b/101/377" target="_blank" rel="nofollow noopener"><i class="fa fa-linkedin-square"></i></a></li>-->
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>*@
 
     <footer class="fto">
         <p>&copy; @DateTime.Now.Year - Applicazione ASP.NET</p>
     </footer>
-
+    }
     @RenderSection("scripts", required: false)
 </body>
 </html>

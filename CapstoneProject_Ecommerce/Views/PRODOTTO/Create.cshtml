@@ -6,82 +6,83 @@
 
 <h2>CREA PRODOTTO</h2>
 
+<div class="container" id="ContEdit">
 
-@using (Html.BeginForm("Create", "PRODOTTO", FormMethod.Post, new { @enctype = "multipart/form-data" })) 
-{
-    @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>PRODOTTO</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.NomeProdotto, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.NomeProdotto, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.NomeProdotto, "", new { @class = "text-danger" })
-        </div>
+    <div>
+        @Html.ActionLink("Prodotti", "ListaAdmin")
     </div>
+            <hr />
+    @using (Html.BeginForm("Create", "PRODOTTO", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Descrizione, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Descrizione, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Descrizione, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Prezzo, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @{Html.EnableClientValidation(false);}
-            @Html.EditorFor(model => model.Prezzo, new { htmlAttributes = new { @class = "form-control" } })
-            @{Html.EnableClientValidation(true);}
+        <div class="form-horizontal ContEditBox2 p-2">
             
-        </div>
-    </div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.NomeProdotto, htmlAttributes: new { @class = "control-label userName" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NomeProdotto, new { htmlAttributes = new { @class = "form-control", @style = " width:100%" } })
+                    @Html.ValidationMessageFor(model => model.NomeProdotto, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-    <div class="form-group">
-        @Html.Label("Quantità Taglia S", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.Editor("Quantità", new { htmlAttributes = new { @class = "form-control", @type = "number" } })
-        </div>
-    </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Descrizione, htmlAttributes: new { @class = "control-label  userName" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Descrizione, new { htmlAttributes = new { @class = "form-control", @style = " width:100%" } })
+                    @Html.ValidationMessageFor(model => model.Descrizione, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-    <div class="form-group">
-        @Html.Label("Quantità Taglia M ", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.Editor("QuantitàM", new { htmlAttributes = new { @class = "form-control", @type = "number" } })
-        </div>
-    </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Prezzo, htmlAttributes: new { @class = "control-label userName" })
+                <div class="col-md-10">
+                    @{Html.EnableClientValidation(false);}
+                    @Html.EditorFor(model => model.Prezzo, new { htmlAttributes = new { @class = "form-control", @style = " width:100%" } })
+                    @{Html.EnableClientValidation(true);}
 
-    <div class="form-group">
-        @Html.Label("Quantità Taglia L", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.Editor("QuantitàL", new { htmlAttributes = new { @class = "form-control", @type = "number" } })
-        </div>
-    </div>
+                </div>
+            </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Foto, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextBox("File", null, new { @class = "form-control", @type = "File" })
-            @Html.ValidationMessageFor(model => model.Foto, "", new { @class = "text-danger" })
-        </div>
-    </div>
+            <div class="form-group">
+                @Html.Label("Quantità Taglia S", htmlAttributes: new { @class = "control-label  userName" })
+                <div class="col-md-10">
+                    @Html.Editor("Quantità", new { htmlAttributes = new { @class = "form-control", @type = "number", @style = " width:100%" } })
+                </div>
+            </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+            <div class="form-group">
+                @Html.Label("Quantità Taglia M ", htmlAttributes: new { @class = "control-label userName" })
+                <div class="col-md-10">
+                    @Html.Editor("QuantitàM", new { htmlAttributes = new { @class = "form-control", @type = "number", @style = " width:100%" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Quantità Taglia L", htmlAttributes: new { @class = "control-label userName" })
+                <div class="col-md-10">
+                    @Html.Editor("QuantitàL", new { htmlAttributes = new { @class = "form-control", @type = "number", @style = " width:100%" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Foto, htmlAttributes: new { @class = "control-label userName" })
+                <div class="col-md-10">
+                    @Html.TextBox("File", null, new { @class = "form-control", @type = "File", @style = " width:100%" })
+                    @Html.ValidationMessageFor(model => model.Foto, "", new { @class = "text-danger" })
+                </div>
+            </div>
         </div>
-    </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 text-center mt-5" id="contBtn" style="width: 100%">
+                    <input type="submit" value="Crea" class="btn btn-default" />
+                </div>
+            </div>
+    }
+
 </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "ListaAdmin")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

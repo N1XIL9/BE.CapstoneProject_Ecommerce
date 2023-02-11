@@ -4,46 +4,48 @@
     ViewBag.Title = "Login";
 }
 
-<h2>AREA RISERVATA</h2>
+@*<h2>AREA RISERVATA</h2>*@
 
+<div class="container" >
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="blurred-box">
-        <div class="form-horizontal">
+    <div class="blurred-box ContLoginP">
+        <div class="form-horizontal ContLogin">
 
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group col-6">
-                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="form-group p-2 mx-5">
+                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2 userName text-center" })
                 <div>
-                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control", @style=" width:100%" } })
                     @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
                 </div>
             </div>
 
 
-            <div class="form-group col-6">
-                @Html.LabelFor(model => model.Pass, htmlAttributes: new { @class = "control-label " })
+            <div class="form-group p-2 mx-5">
+                @Html.LabelFor(model => model.Pass, htmlAttributes: new { @class = "control-label passWord text-center" })
                 <div>
-                    @Html.EditorFor(model => model.Pass, new { htmlAttributes = new { @class = "form-control", @Type = "password" } })
+                    @Html.EditorFor(model => model.Pass, new { htmlAttributes = new { @class = "form-control", @Type = "password", @style = " width:100%" } })
                     @Html.ValidationMessageFor(model => model.Pass, "", new { @class = "text-danger" })
                 </div>
             </div>
-            <div>
+            <div class="mb-2 mx-5" style="width:165px" >
                 @Html.ActionLink("Registrati", "Register")
             </div>
 
             <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
+                <div class="col-md-offset-2 col-md-10 text-center" id="contBtn" style="width: 100%" >
                     <input type="submit" value="Accedi" class="btn btn-default" />
                 </div>
             </div>
         </div>
-        }
-</div>
+    </div>
+}
+ </div>   
 
-        @section Scripts {
-            @Scripts.Render("~/bundles/jqueryval")
-        }
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

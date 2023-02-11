@@ -7,13 +7,13 @@
 <h2>AMMINISTRAZIONE</h2>
 
 
-<div class="container" id="areaRiservata">
+<div class="container" id="ContAll">
 
-   
+
     <p>
         @Html.ActionLink("Crea Prodotto", "Create")
     </p>
-    <table class="table">
+    <table class="table table-light table-striped">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.IdProdotto)
@@ -52,11 +52,15 @@
                 <td>
                     <img src="~/Content/img/@Html.DisplayFor(modelItem => item.Foto)" width="100" />
                 </td>
-                <td>
-                    @Html.ActionLink("Modifica", "Edit", new { id = item.IdProdotto }) |
-                    @Html.ActionLink("Dettagli", "Details", new { id = item.IdProdotto }) |
+                <td >
+
+                    @Html.ActionLink("Modifica", "Edit", new { id = item.IdProdotto })
+              
+                    @Html.ActionLink("Dettagli", "Details", new { id = item.IdProdotto })
+          
                     @Html.ActionLink("Elimina", "Delete", new { id = item.IdProdotto })
                 </td>
+                
             </tr>
         }
 

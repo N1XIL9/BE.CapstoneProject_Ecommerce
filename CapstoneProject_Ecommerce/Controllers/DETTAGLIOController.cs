@@ -10,6 +10,7 @@ using CapstoneProject_Ecommerce.Models;
 
 namespace CapstoneProject_Ecommerce.Controllers
 {
+        [Authorize]
     public class DETTAGLIOController : Controller
     {
         private ModelDBcontext db = new ModelDBcontext();

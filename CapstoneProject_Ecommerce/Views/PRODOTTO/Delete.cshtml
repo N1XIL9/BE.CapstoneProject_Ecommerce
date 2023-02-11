@@ -4,53 +4,57 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Elimina prodotto</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>PRODOTTO</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NomeProdotto)
-        </dt>
+<div class="container" id="ContEdit">
 
-        <dd>
-            @Html.DisplayFor(model => model.NomeProdotto)
-        </dd>
+                @Html.ActionLink("Lista articoli", "ListaAdmin")
+        <hr />
+    <h3 class="mx-4">Sei sicuro di voler eliminare questo articolo?</h3>
+    <div class="mt-2">
+        
+        <dl class="dl-horizontal">
+            <dt class="mx-4">
+                @Html.DisplayNameFor(model => model.NomeProdotto)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descrizione)
-        </dt>
+            <dd class="mx-4">
+                @Html.DisplayFor(model => model.NomeProdotto)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Descrizione)
-        </dd>
+            <dt class="mx-4">
+                @Html.DisplayNameFor(model => model.Descrizione)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Prezzo)
-        </dt>
+            <dd class="mx-4">
+                @Html.DisplayFor(model => model.Descrizione)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Prezzo)
-        </dd>
+            <dt class="mx-4">
+                @Html.DisplayNameFor(model => model.Prezzo)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Foto)
-        </dt>
+            <dd class="mx-4">
+                @Html.DisplayFor(model => model.Prezzo)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Foto)
-        </dd>
+            <dt class="mx-4">
+                @Html.DisplayNameFor(model => model.Foto)
+            </dt>
 
-    </dl>
+            <dd class="mx-4">
+                @Html.DisplayFor(model => model.Foto)
+            </dd>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+        </dl>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "ListaAdmin")
-        </div>
-    }
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color text-center" id="contBtn" style="width: 100%">
+                <input type="submit" value="Elimina" class="btn btn-default" />
+            </div>
+        }
+    </div>
 </div>
