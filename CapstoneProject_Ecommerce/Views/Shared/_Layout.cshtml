@@ -18,25 +18,26 @@
 
     @*@if (ViewContext.RouteData.Values["Controller"].ToString() == "PRODOTTO")
         {*@
-    <div class="d-flex flex-column main">
+    <div class="d-flex flex-column main mx-5">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="~/Views/PRODOTTO/Index.cshtml">
-                    @*<img src="~/Content/Img/Prova_logo_nik.png" alt="Logo" width="60" class="d-inline-block align-text-top" />*@
+            <div class="container-fluid d-flex flex-row">
+                <a class="navbar-brand" href="@Url.Action("Index", "PRODOTTO")">
+
+                    <img src="~/Content/Img/Prova_logo_nik.png" alt="Logo" width="40" class="d-inline-block align-text-top" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="collapse navbar-collapse text-center justify-content-end" id="navbarNav">
 
                     <ul class="navbar-nav">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item">@Html.ActionLink("🖐 ESCI", "LogOut", "Home") </li>
+                            <li class="nav-item">@Html.ActionLink("🔓", "LogOut", "Home") </li>
                         }
                         else
                         {
-                            <li class="nav-item">@Html.ActionLink("🔒 ENTRA", "Login", "Home") </li>
+                            <li class="nav-item">@Html.ActionLink("🔒", "Login", "Home") </li>
                         }
 
                         @if (User.Identity.Name == "Admin")

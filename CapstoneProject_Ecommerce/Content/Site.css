@@ -49,7 +49,8 @@ a {
 
 #contBtn {
     background-color: #f90000b3;
-    border-radius: 0px 0px 17px 17px;
+    border-radius: 0px 0px 15px 15px;
+    width:100%;
 }
 
 .flexCard {
@@ -91,7 +92,7 @@ a {
 }
 
 .ImgCard {
-    border-radius: 133px 0px 0px 0px !important; 
+    border-radius: 102px 0px 0px 0px !important; 
 }
 
 
@@ -112,7 +113,7 @@ a {
 }
 
 .form-control {
-    width: 143px;
+    width: 130px;
     border-radius: 0px;
     /*line-height: 0;*/
     font-size: small;
@@ -131,7 +132,8 @@ a {
 
 h2{
     text-align: center;
-    margin-top: 20px;
+    margin-top: 50px;
+    margin-bottom:30px;
 }
 
 .ContLoginP {
@@ -161,9 +163,11 @@ h2{
 
 #ContAll {
     box-shadow: 2px 4px 6px -3px black;
-    padding: 10px;
+    /*padding: 10px;*/
     margin-top: 30px;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
+    margin-left: 80px;
+    margin-right: 80px;
 }
 
 #ContEdit {
@@ -195,8 +199,10 @@ h2{
     margin-top: 40px;
 }
 
-ul{
-    list-style:none;
+
+
+ul {
+    list-style: none;
 }
 
 .footer-bg {

@@ -9,7 +9,7 @@
     @foreach (var item in Model)
     {
 
-        <div class="card fade-in-right" style="width: 14rem;">
+        <div class="card fade-in-right" style="width: 12rem;">
 
             <img class="ImgCard" src="~/Content/img/@Html.DisplayFor(modelItem => item.Foto)" />
             <div class="card-body">
@@ -40,7 +40,7 @@
 
 
             <div class="btn" id="contBtn" style="background-color: #f90000b3">
-                <a href="#" data-id="@item.IdProdotto" class="OrdinaBtn">AGGIUNGI AL CARRELLO</a>
+                <a href="#" data-id="@item.IdProdotto" class="OrdinaBtn">CARRELLO</a>
             </div>
         </div>
     }

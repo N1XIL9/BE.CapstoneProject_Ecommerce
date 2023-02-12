@@ -4,49 +4,53 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>MODIFICA ORDINE'</h2>
+<h2>MODIFICA ORDINE</h2>
 
+<div class="container" id="ContEdit">
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.IdDettaglio)
-    @Html.HiddenFor(model => model.IdProdotto)
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.IdTaglia, "IdTaglia", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("IdTaglia", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.IdTaglia, "", new { @class = "text-danger" })
-        </div>
+    <div>
+        @Html.ActionLink("CARRELLO", "Carrello", "DETTAGLIO")
     </div>
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal ContEditBox">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.IdDettaglio)
+            @Html.HiddenFor(model => model.IdProdotto)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IdTaglia, "IdTaglia", htmlAttributes: new { @class = "control-label" })
+                <div>
+                    @Html.DropDownList("IdTaglia", null, htmlAttributes: new { @class = "form-control", @style = " width:100%" })
+                    @Html.ValidationMessageFor(model => model.IdTaglia, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Quantita, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Quantita, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Quantita, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Quantita, htmlAttributes: new { @class = "control-label" })
+                <div>
+                    @Html.EditorFor(model => model.Quantita, new { htmlAttributes = new { @class = "form-control" , @style = " width:100%" } })
+                    @Html.ValidationMessageFor(model => model.Quantita, "", new { @class = "text-danger" })
+                </div>
+            </div>
         </div>
-    </div>
 
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
-        </div>
-    </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 text-center mt-5" id="contBtn" style="width: 100%">
+                    <input type="submit" value="SALVA" class="btn btn-default" />
+                </div>
+            </div>
+    }
+
+
 </div>
-}
-
-<div>
-    @Html.ActionLink("Carrello", "Carrello", "DETTAGLIO")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

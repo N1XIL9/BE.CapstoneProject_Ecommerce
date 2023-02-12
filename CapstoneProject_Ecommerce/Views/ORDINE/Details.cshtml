@@ -4,72 +4,75 @@
     ViewBag.Title = "Details";
 }
 
-<h2>DETTAGLIO DELL'ORDINE</h2>
+@*<h2>DETTAGLIO ORDINE </h2>*@
 
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ORDINE.IdOrdine)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PRODOTTO.Foto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PRODOTTO.NomeProdotto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TAGLIE.TagliaProdotto)
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.USER.Username)*@
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Quantita)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrezzoTotale)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ORDINE.Confermato)
-        </th>
-        <th></th>
-    </tr>
+<div class="container mt-5" id="ContAll">
 
-    @foreach (var item in Model)
-    {
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ORDINE.IdOrdine)
-            </td>
-            <td>
-                <img src="~/Content/img/@Html.DisplayFor(modelItem => item.PRODOTTO.Foto)" width="100" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PRODOTTO.NomeProdotto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TAGLIE.TagliaProdotto)
-            </td>
-            <td>
-                @*@Html.DisplayFor(modelItem => item.USER.Username)*@
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantita)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrezzoTotale)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ORDINE.Confermato)
-            </td>
-
+            <th>
+                @Html.DisplayNameFor(model => model.ORDINE.IdOrdine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PRODOTTO.Foto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PRODOTTO.NomeProdotto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TAGLIE.TagliaProdotto)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.USER.Username)*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantita)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrezzoTotale)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ORDINE.Confermato)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ORDINE.IdOrdine)
+                </td>
+                <td>
+                    <img src="~/Content/img/@Html.DisplayFor(modelItem => item.PRODOTTO.Foto)" width="100" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PRODOTTO.NomeProdotto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TAGLIE.TagliaProdotto)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.USER.Username)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantita)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrezzoTotale)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ORDINE.Confermato)
+                </td>
+
+            </tr>
+        }
+
+    </table>
     <div>
-        @Html.ActionLink("Ordini", "OrdineConfermato", "ORDINE")
+        @Html.ActionLink("ORDINI", "OrdineConfermato", "ORDINE")
     </div>
+</div>

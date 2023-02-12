@@ -21,6 +21,8 @@ namespace CapstoneProject_Ecommerce.Models
         [Key]
         [Display(Name = "Taglia")]
         public int IdTaglie { get; set; }
+        [Display(Name = "Prodotto")]
+
 
         public int IdProdotto { get; set; }
 
