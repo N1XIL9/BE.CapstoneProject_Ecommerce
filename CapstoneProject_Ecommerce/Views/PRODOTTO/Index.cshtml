@@ -6,6 +6,14 @@
 
 <div class="flexCard ">
 
+
+    @if (ViewBag.Message != null && ViewBag.Message != "")
+    {
+        <div class="alert-danger">
+            @ViewBag.Message
+        </div>
+    }
+
     @foreach (var item in Model)
     {
 
@@ -29,9 +37,9 @@
                     <h5 class="card-title quantita"><input class="InpCard" type="number" /></h5>
                 </div>
             </div>
-                <p class="GuidaTaglie">
-                    @Html.ActionLink("Guida alle taglie", "GuidaAlleTaglie")
-                </p>
+            <p class="GuidaTaglie">
+                @Html.ActionLink("Guida alle taglie", "GuidaAlleTaglie")
+            </p>
 
 
             <div class="card-text">

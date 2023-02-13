@@ -11,7 +11,7 @@
     @*<p>
             @Html.ActionLink("Create New", "Create")
         </p>*@
-    <table class="table" >
+    <table class="table">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.PRODOTTO.NomeProdotto)
@@ -56,17 +56,15 @@
                     @Html.DisplayFor(modelItem => item.PrezzoTotale)
                 </td>
                 <td>
-                    @Html.ActionLink("MODIFCA", "Edit", new { id = item.IdDettaglio }) |
+                    @*@Html.ActionLink("MODIFCA", "Edit", new { id = item.IdDettaglio }) |*@
 
-                    @Html.ActionLink("DETTAGLI", "Delete", new { id = item.IdDettaglio })
+                    @Html.ActionLink("ELIMINA", "Delete", new { id = item.IdDettaglio })
                 </td>
             </tr>
         }
 
     </table>
     <div>
-        
-
-    <btn class="btn btn-default" id="contBtn">  <a style="color:white" href="/Ordine/Create">CONFERMA ORDINE</a></btn>
+        <btn class="btn btn-default" id="contBtn">  <a style="color:white" href="/Ordine/Create">CONFERMA ORDINE</a></btn>
     </div>
 </div>

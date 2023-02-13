@@ -42,17 +42,21 @@
 
             <div class="form-group mx-5 mb-2">
                 @Html.LabelFor(model => model.DataOrdine, htmlAttributes: new { @class = "control-label" })
-                <div >
+                <div>
+                    @{Html.EnableClientValidation(false);}
                     @Html.EditorFor(model => model.DataOrdine, new { htmlAttributes = new { @class = "form-control", @style = " width:100%" } })
-                    @Html.ValidationMessageFor(model => model.DataOrdine, "", new { @class = "text-danger" })
+                    @{Html.EnableClientValidation(true);}
+
                 </div>
             </div>
 
             <div class="form-group mx-5 mb-2">
                 @Html.LabelFor(model => model.ImportoTotale, htmlAttributes: new { @class = "control-label" })
                 <div>
+                    @{Html.EnableClientValidation(false);}
                     @Html.EditorFor(model => model.ImportoTotale, new { htmlAttributes = new { @class = "form-control", @style = " width:100%" } })
-                    @Html.ValidationMessageFor(model => model.ImportoTotale, "", new { @class = "text-danger" })
+                    @{Html.EnableClientValidation(true);}
+
                 </div>
             </div>
 

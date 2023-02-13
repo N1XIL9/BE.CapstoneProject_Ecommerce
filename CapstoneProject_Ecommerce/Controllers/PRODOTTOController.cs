@@ -162,7 +162,16 @@ namespace CapstoneProject_Ecommerce.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
+
         {
+            List<DETTAGLIO> d = db.DETTAGLIO.Where(x => x.IdProdotto == id).ToList();
+
+            foreach (var item in d)
+            {
+                db.DETTAGLIO.Remove(item);
+                db.SaveChanges();
+            }
+
             PRODOTTO pRODOTTO = db.PRODOTTO.Find(id);
             db.PRODOTTO.Remove(pRODOTTO);
             db.SaveChanges();

@@ -6,60 +6,64 @@
 
 <h2>CARRELLO 🛒</h2>
 
-@*<p>
-        @Html.ActionLink("Create New", "Create")
-    </p>*@
-<table class="table">
-    <tr>
-        <th>
-            @*@Html.DisplayNameFor(model => model.ORDINE.Confermato)*@
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PRODOTTO.NomeProdotto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TAGLIE.TagliaProdotto)
-        </th>
-        <th>
-            @*@Html.DisplayNameFor(model => model.USER.Username)*@
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Quantita)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrezzoTotale)
-        </th>
-        <th></th>
-    </tr>
+<div class=" mt-5" id="ContAll" style="border-radius:0px 0px 17px 17px;">
 
-    @foreach (var item in Model)
-    {
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+    <table class="table">
         <tr>
-            <td>
-                @*@Html.DisplayFor(modelItem => item.ORDINE.Confermato)*@
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PRODOTTO.NomeProdotto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TAGLIE.TagliaProdotto)
-            </td>
-            <td>
-                @*@Html.DisplayFor(modelItem => item.USER.Username)*@
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantita)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrezzoTotale)
-            </td>
-            <td>
-                @Html.ActionLink("MODIFICA", "Edit", new { id = item.IdDettaglio }) |
-
-                @Html.ActionLink("ELIMINA", "Delete", new { id = item.IdDettaglio })
-            </td>
+            <th>
+                @*@Html.DisplayNameFor(model => model.ORDINE.Confermato)*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PRODOTTO.NomeProdotto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TAGLIE.TagliaProdotto)
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.USER.Username)*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantita)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrezzoTotale)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
-<btn class="btn btn-default"> <a href="/Ordine/Create">CONFERMA ORDINE</a></btn>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.ORDINE.Confermato)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PRODOTTO.NomeProdotto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TAGLIE.TagliaProdotto)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.USER.Username)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantita)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrezzoTotale)
+                </td>
+                <td>
+                    @*@Html.ActionLink("MODIFICA", "Edit", new { id = item.IdDettaglio }) |*@
+
+                    @Html.ActionLink("ELIMINA", "Delete", new { id = item.IdDettaglio })
+                </td>
+            </tr>
+        }
+    </table>
+    <div>
+        <btn class="btn btn-default"  id="contBtn">  <a style="color:white" href="/Ordine/Create">CONFERMA ORDINE</a></btn>
+    </div>
+</div>

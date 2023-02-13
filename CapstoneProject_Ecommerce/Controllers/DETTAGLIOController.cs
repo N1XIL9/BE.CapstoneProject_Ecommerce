@@ -22,9 +22,20 @@ namespace CapstoneProject_Ecommerce.Controllers
             if (id > 0)
             {
                 TAGLIE t = db.TAGLIE.Where(x => x.IdProdotto == id && x.TagliaProdotto == taglia ).FirstOrDefault();
+               
                 t.QuantitaTaglia -= quantity;
+
+                if (t.QuantitaTaglia < 0)
+                {
+                    t.QuantitaTaglia += quantity;
+                    ViewBag.Message= $"Quantità non disponibile, rimaste in stock {t.QuantitaTaglia}";
+                    return RedirectToAction("Index", "PRODOTTO");
+                }
+                else
+                {
                 db.Entry(t).State = EntityState.Modified;
-                db.SaveChanges();
+                db.SaveChanges();                   
+                }
 
                 DETTAGLIO d = new DETTAGLIO();
                 d.IdProdotto = id;
@@ -107,14 +118,14 @@ namespace CapstoneProject_Ecommerce.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             DETTAGLIO d = db.DETTAGLIO.Find(id);
-            List<SelectListItem> idTaglia = new List<SelectListItem>();
+            List<SelectListItem> ListaTaglie = new List<SelectListItem>();
             SelectListItem item1 = new SelectListItem { Text = "S", Value = "1" };
             SelectListItem item2 = new SelectListItem { Text = "M", Value = "2" };
             SelectListItem item3 = new SelectListItem { Text = "L", Value = "3" };
-            idTaglia.Add(item1);
-            idTaglia.Add(item2);
-            idTaglia.Add(item3);
-            ViewBag.IdTaglia = idTaglia;
+            ListaTaglie.Add(item1);
+            ListaTaglie.Add(item2);
+            ListaTaglie.Add(item3);
+            ViewBag.lista = ListaTaglie;
 
             return View(d);
                    
@@ -129,15 +140,41 @@ namespace CapstoneProject_Ecommerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                USER utente = db.USER.Where(x => x.Username == User.Identity.Name).FirstOrDefault();
+                
                 DETTAGLIO dettaglio = db.DETTAGLIO.Find(d.IdDettaglio);
-                d.PrezzoTotale = dettaglio.PRODOTTO.Prezzo * d.Quantita;
-                 
 
-                d.IdUser = utente.IdUser;
-                ModelDBcontext db1 = new ModelDBcontext();
-                db1.Entry(d).State = EntityState.Modified;
-                db1.SaveChanges();
+                var a = "";
+
+                if (d.IdTaglia == 1)
+                {
+                    a = "S";
+                }
+                else if (d.IdTaglia == 2)
+                {
+                    a = "M";
+                }
+                else if (d.IdTaglia == 3)
+                {
+                    a = "L";
+                }
+                if (d.IdTaglia == dettaglio.IdTaglia) 
+                {
+                    TAGLIE t = db.TAGLIE.Where(x => x.IdProdotto == d.IdProdotto && x.IdTaglie == dettaglio.IdTaglia).FirstOrDefault();
+                    t.QuantitaTaglia += dettaglio.Quantita;
+                    db.Entry(t).State = EntityState.Modified;
+                    db.SaveChanges();
+                    dettaglio.IdTaglia = d.IdTaglia;
+                }
+               
+                dettaglio.Quantita = d.Quantita;
+                TAGLIE t1 = db.TAGLIE.Where(x => x.IdProdotto == d.IdProdotto && x.IdTaglie == d.IdTaglia).FirstOrDefault();
+                t1.QuantitaTaglia -= d.Quantita;
+                db.Entry(t1).State = EntityState.Modified;
+                db.SaveChanges();
+                dettaglio.PrezzoTotale = dettaglio.PRODOTTO.Prezzo * d.Quantita;
+                               
+                db.Entry(dettaglio).State = EntityState.Modified;
+                db.SaveChanges();
             }
             return RedirectToAction("Carrello");
         }

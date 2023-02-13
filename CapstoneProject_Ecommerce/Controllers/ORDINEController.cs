@@ -137,11 +137,21 @@ namespace CapstoneProject_Ecommerce.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            var ordineDaEliminare = db.ORDINE.Find(id);
+
+            if (ordineDaEliminare != null)
+            {
+                var dettagliDaEliminare = db.DETTAGLIO.Where(d => d.IdOrdine == id);
+                db.DETTAGLIO.RemoveRange(dettagliDaEliminare);
+                db.SaveChanges();
+            }
+
             ORDINE oRDINE = db.ORDINE.Find(id);
             db.ORDINE.Remove(oRDINE);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {
