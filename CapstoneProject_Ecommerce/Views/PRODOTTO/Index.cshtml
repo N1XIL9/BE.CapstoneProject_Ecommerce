@@ -123,75 +123,76 @@
     })
 </script>
 
-<script src="https://www.youtube.com/iframe_api"></script>
+<div class="embed-responsive embed-responsive-16by9 mx-auto my-auto">
+    <script src="https://www.youtube.com/iframe_api"></script>
+</div>
+
+    <script>
+        // Creo una variabile globale per il player di YouTube
+        var player;
+
+        // Inizializzo il player di YouTube quando la pagina è stata caricata
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('video-player1', {
+                videoId: 'AvJrw71Zrik',
+                width: 600,
+                height: 300,
+                playerVars: {
+                    autoplay: 0,
+                    mute: 1,
+                    controls: 1,
+                    rel: 0,
+                    showinfo: 0
+                }
+            });
+            player = new YT.Player('video-player2', {
+                videoId: 'CTgzEoItPRU',
+                width: 600,
+                height: 300,
+                playerVars: {
+                    autoplay: 0,
+                    mute: 1,
+                    controls: 1,
+                    rel: 0,
+                    showinfo: 0
+                }
+            });
+            player = new YT.Player('video-player3', {
+                videoId: 'hz1LPfKmET4',
+                width: 600,
+                height: 300,
+                playerVars: {
+                    autoplay: 0,
+                    mute: 1,
+                    controls: 1,
+                    rel: 0,
+                    showinfo: 0
+                }
+            });
+            player = new YT.Player('video-player4', {
+                videoId: 'zJwaTX_CH8k',
+                width: 600,
+                height: 300,
+                playerVars: {
+                    autoplay: 0,
+                    mute: 1,
+                    controls: 1,
+                    rel: 0,
+                    showinfo: 0
+                }
+            });
+        }
 
 
-<script>
-    // Creo una variabile globale per il player di YouTube
-    var player;
-
-    // Inizializzo il player di YouTube quando la pagina è stata caricata
-    function onYouTubeIframeAPIReady() {
-        player = new YT.Player('video-player1', {
-            videoId: 'AvJrw71Zrik',
-            width: 600,
-            height: 300,
-            playerVars: {
-                autoplay: 0,
-                mute: 1,
-                controls: 1,
-                rel: 0,
-                showinfo: 0
-            }
+        // Aggiungo un evento di passaggio del mouse sul div
+        $('#video-player').on('mouseenter', function () {
+            // Avvio la riproduzione del video quando il puntatore del mouse entra nel div
+            player.playVideo();
+        }).on('mouseleave', function () {
+            // Fermo la riproduzione del video quando il puntatore del mouse esce dal div
+            player.pauseVideo();
         });
-        player = new YT.Player('video-player2', {
-            videoId: 'CTgzEoItPRU',
-            width: 600,
-            height: 300,
-            playerVars: {
-                autoplay: 0,
-                mute: 1,
-                controls: 1,
-                rel: 0,
-                showinfo: 0
-            }
-        });
-        player = new YT.Player('video-player3', {
-            videoId: 'hz1LPfKmET4',
-            width: 600,
-            height: 300,
-            playerVars: {
-                autoplay: 0,
-                mute: 1,
-                controls: 1,
-                rel: 0,
-                showinfo: 0
-            }
-        });
-        player = new YT.Player('video-player4', {
-            videoId: 'zJwaTX_CH8k',
-            width: 600,
-            height: 300,
-            playerVars: {
-                autoplay: 0,
-                mute: 1,
-                controls: 1,
-                rel: 0,
-                showinfo: 0
-            }
-        });
-    }
-
-
-    // Aggiungo un evento di passaggio del mouse sul div
-    $('#video-player').on('mouseenter', function () {
-        // Avvio la riproduzione del video quando il puntatore del mouse entra nel div
-        player.playVideo();
-    }).on('mouseleave', function () {
-        // Fermo la riproduzione del video quando il puntatore del mouse esce dal div
-        player.pauseVideo();
-    });
-</script>
+    </script>
 
 
 
