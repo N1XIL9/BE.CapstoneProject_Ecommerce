@@ -59,5 +59,10 @@ namespace CapstoneProject_Ecommerce.Controllers
             }
             return RedirectToAction("Register", "Home");
         }
+
+        public ActionResult Contatti()
+        {
+            return View();
+        }
     }
 }

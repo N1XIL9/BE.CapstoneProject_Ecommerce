@@ -16,24 +16,28 @@
 </head>
 <body>
 
-    @*@if (ViewContext.RouteData.Values["Controller"].ToString() == "PRODOTTO")
-        {*@
-    <div class="d-flex flex-column main mx-5">
+    <div class="d-flex flex-column main ">
+        @if (ViewContext.RouteData.Values["Controller"].ToString() == "PRODOTTO")
+        {
+            
+           <img src="~/Content/Img/SHOP (4).jpg" />
+        }
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid d-flex flex-row">
                 <a class="navbar-brand" href="@Url.Action("Index", "PRODOTTO")">
 
-                    <img src="~/Content/Img/Prova_logo_nik.png" alt="Logo" width="40" class="d-inline-block align-text-top" />
+                    <img src="~/Content/Img/logo.png" id="MyImg" alt="Logo" width="60" class="d-inline-block align-text-top" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse text-center justify-content-end" id="navbarNav">
 
                     <ul class="navbar-nav">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item">@Html.ActionLink("🔓", "LogOut", "Home") </li>
+                            <li class="nav-item">@Html.ActionLink("🔓", "LogOut", "Home")  </li>
                         }
                         else
                         {
@@ -43,23 +47,23 @@
                         @if (User.Identity.Name == "Admin")
                         {
 
-                            <li class="nav-item">@Html.ActionLink("AREA PRIVATA", "ListaAdmin", "PRODOTTO")</li>
+                            <li class="nav-item">@Html.ActionLink("AREA PRIVATA", "ListaAdmin", "PRODOTTO", null, new { @class = "white-text" })</li>
 
                         }
-                        <li class="nav-item">@Html.ActionLink("HOME", "Index", "PRODOTTO")</li>
+                        <li class="nav-item">@Html.ActionLink("HOME", "Index", "PRODOTTO", null, new { @class = "white-text" })</li>
 
                         @if (User.Identity.Name == "Admin")
                         {
 
-                            <li class="nav-item">@Html.ActionLink("ORDINI", "Index", "Ordine")</li>
+                            <li class="nav-item">@Html.ActionLink("ORDINI", "Index", "Ordine", null, new { @class = "white-text" })</li>
                         }
                         else
                         {
-                            <li class="nav-item">@Html.ActionLink("ORDINI", "OrdineConfermato", "Ordine")</li>
+                            <li class="nav-item">@Html.ActionLink("ORDINI", "OrdineConfermato", "Ordine", null, new { @class = "white-text" })</li>
 
                         }
 
-                        <li class="nav-item">@Html.ActionLink("GUIDA ALLE TAGLIE", "GuidaAlleTaglie", "PRODOTTO")</li>
+                        <li class="nav-item">@Html.ActionLink("GUIDA ALLE TAGLIE", "GuidaAlleTaglie", "PRODOTTO", null, new { @class = "white-text" })</li>
 
                         @if (User.Identity.Name != "Admin")
                         {
@@ -71,7 +75,7 @@
             </div>
         </nav>
     </div>
-    @*}*@
+   
 
     <div>
         @RenderBody()
@@ -82,7 +86,7 @@
             <div class="row footer-menu">
 
 
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <h4 class="text-white">Support</h4>
                     <ul>
                         <li><a href="https://www.roces.com/en/terms-and-conditions-of-sale#DELIVERY ">Shipping/Returns</a></li>
@@ -94,21 +98,21 @@
                         <li><a href="https://www.roces.com/en/contact">Contacts</a></li>
                     </ul>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <h4 class="text-white">Company</h4>
                     <ul>
                         <li><a href="#">About Us</a></li>
 
                     </ul>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <ul class="inline-list social-media-icons">
-                        <li><a href="https://www.facebook.com/rocesofficial" target="_blank" rel="nofollow noopener"><i class="fa fa-facebook-square"></i></a></li>
-                        <li><a href="https://www.instagram.com/roces_official/" target="_blank" rel="nofollow noopener"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="https://www.youtube.com/user/roces1952" target="_blank" rel="nofollow noopener"><i class="fa fa-youtube-square"></i></a></li>
-                        <!--<li><a href="https://twitter.com/Roces_official" target="_blank" rel="nofollow noopener"><i class="fa fa-twitter-square"></i></a></li>
-                        <li><a href="https://it.pinterest.com/rocesofficial/" target="_blank" rel="nofollow noopener"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a href="https://it.linkedin.com/pub/roces-press-media/6b/101/377" target="_blank" rel="nofollow noopener"><i class="fa fa-linkedin-square"></i></a></li>-->
+                        <li><a href="https://www.facebook.com/NicolaLerra?ref=hl" target="_blank" rel="nofollow noopener"><i class="fa fa-facebook-square"></i></a></li>
+                        <li><a href="https://www.youtube.com/redirect?event=channel_banner&redir_token=QUFFLUhqazl6cUUzME5Lc1dYUG1RQkF5Q1dpSElsRlQ4UXxBQ3Jtc0tsOHBITTBGRDdmWTJuY2pMdHBVRjB3SXpwS1BkOFlBUjI3NHEzektzM0RoX280VGlRZmtDNkZzY0JjdVdqV25XdVdWMWhndGxCZC0wZWIzTlQxRkZDcVViV1Z4cFNCOEhRdjdGYURtb1Y0bGdJQ3F0aw&q=https%3A%2F%2Fwww.instagram.com%2Fnicolalerra%2F" target="_blank" rel="nofollow noopener"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://www.youtube.com/channel/UC228kKz_ooJRj-dBTkXCk3w" target="_blank" rel="nofollow noopener"><i class="fa fa-youtube-square"></i></a></li>
+                        @*<li><a href="https://twitter.com/Roces_official" target="_blank" rel="nofollow noopener"><i class="fa fa-twitter-square"></i></a></li>
+                        <li><a href="https://it.pinterest.com/rocesofficial/" target="_blank" rel="nofollow noopener"><i class="fa fa-pinterest"></i></a></li>*@
+                        <li><a href="https://www.linkedin.com/in/nicola-lerra/" target="_blank" rel="nofollow noopener"><i class="fa fa-linkedin-square"></i></a></li>
                     </ul>
                 </div>
             </div>

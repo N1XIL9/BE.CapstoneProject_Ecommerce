@@ -2,7 +2,7 @@
     width: 100%;
     height: 100%;
     margin: 0;
-    background: #F2F2F2;
+    /*background: #11171f;*/
     font-family: 'Roboto', sans-serif;
 }
 
@@ -23,15 +23,21 @@
     flex-direction: column;
     /*border-radius: 329px 329px 70px 70px;*/
     /*background-color: rgb(0 0 0 / 76%);*/
-    padding: 10px;
-    background: #F2F2F2;
+    /*padding: 10px;*/
+    background: #11171f;
 }
 
 .navbar {
     --bs-navbar-padding-y: 0;
 }
 
+.white-text {
+    color: white !important;
+}
+
+
 a {
+    cursor:pointer;
     text-decoration: none;
     margin: 10px;
     color: orangered;
@@ -54,45 +60,50 @@ a {
 }
 
 .flexCard {
-    margin-top: 20px;
-    padding: 7px;
+    /*margin-top: 20px;
+    margin-bottom: 20px;*/
+    padding: 30px;
     /*background-color: #000000c9;*/
     /*margin-top: 20px;*/
     /*margin-bottom:20px;*/
-       display: flex;
-    border-radius: 10px;
-    background: #F2F2F2;
+    display: flex;
+    /*border-radius: 10px;*/
+    background: #11171f;
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
 }
 
-
+#ContVid{
+    margin-top:10px;
+    margin-bottom:10px;
+}
 
 
 .card {
     margin: 5px;
-    /*padding: 2px;*/
+    padding: 2px;
     border-radius: 10px;
     border-radius: 132px 132px 21px 21px;
-    box-shadow: 2px 2px 7px -1px black;
+    /*box-shadow: 2px 2px 7px -1px black;*/
     border: none;
-    background: #F2F2F2;
+    background: #11171f;
 }
 
 .card-text {
+    color:white;
     text-align: center;
    
 }
 
 .card-body {
     text-align: center;
-    background: #F2F2F2;
-    padding:2px;
+    background: #11171f;
+    padding: 2px;
 }
 
 .ImgCard {
-    border-radius: 102px 0px 0px 0px !important; 
+    /*border-radius: 102px 0px 0px 0px !important;*/ 
 }
 
 
@@ -121,7 +132,7 @@ a {
 }
 
 .InpCard {
-    width: 50px !important;
+    width: 57px !important;
 }
 
 .GuidaTaglie {
@@ -168,6 +179,7 @@ h2{
     /*margin: 0 auto;*/
     margin-left: 80px;
     margin-right: 80px;
+    margin-bottom: 179px;
 }
 
 #ContEdit {
@@ -175,10 +187,15 @@ h2{
     border-radius: 0px 0px 17px 17px;
     padding: 33px 0px 0px 0px;
     margin-top: 30px;
-    margin: 0 auto;
-    width:500px;
+    margin-bottom: 180px;
+    /*margin: 0 auto;*/
+    width: 500px;
 }
 
+.contVideo {
+   
+    background: black;
+}
 
 .ContEditBox {
     display: flex;
@@ -206,9 +223,9 @@ ul {
 }
 
 .footer-bg {
-    margin-top: 190px;
+    /*margin-top: 86px;*/
     background: #11171f;
-    padding: 2rem 0;
+    padding: 2rem 55px;
     
 }
 
@@ -225,3 +242,52 @@ ul {
     font-size: 0.875rem;
     text-align: right;
 }
+
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(0 * var(--bs-gutter-x));
+    margin-left: calc(0 * var(--bs-gutter-x));
+ 
+}
+
+    .row > * {
+        flex-shrink: 0;
+        /*width: 100%;*/
+        max-width: 100%;
+        padding-right: calc(var(--bs-gutter-x) * 0);
+        padding-left: calc(var(--bs-gutter-x) * 0);
+        margin-top: var(--bs-gutter-y);
+    }
+/*ANIMAZIONE*/
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateZ();
+    animation: fadeInRight 1s ease-in-out forwards;
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 6;
+        transform: translateY(0);
+    }
+}
+
+
+

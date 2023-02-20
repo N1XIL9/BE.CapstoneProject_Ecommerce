@@ -174,7 +174,13 @@
     <Content Include="Content\Img\1.jpg" />
     <Content Include="Content\Img\2.jpg" />
     <Content Include="Content\Img\3.jpg" />
-    <Content Include="Content\Img\Prova_logo_nik.png" />
+    <Content Include="Content\Img\cover1.jpg" />
+    <Content Include="Content\Img\logo.png" />
+    <Content Include="Content\Img\SHOP %281%29.mp4" />
+    <Content Include="Content\Img\SHOP %282%29.mp4" />
+    <Content Include="Content\Img\SHOP %283%29.mp4" />
+    <Content Include="Content\Img\SHOP %284%29.jpg" />
+    <Content Include="Content\Img\SHOP_bunner.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

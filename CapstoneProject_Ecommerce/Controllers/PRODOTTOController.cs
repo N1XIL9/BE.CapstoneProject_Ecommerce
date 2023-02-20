@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using CapstoneProject_Ecommerce.Models;
+using Microsoft.Ajax.Utilities;
 using Newtonsoft.Json.Linq;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -32,6 +33,18 @@ namespace CapstoneProject_Ecommerce.Controllers
             idTaglia.Add(item3);
             ViewBag.IdTaglia = idTaglia;
             return View(db.PRODOTTO.ToList());
+        }
+
+        public JsonResult Check(string quantity, string id, string taglia)
+        {
+            var idP = Convert.ToInt32(id);
+            var quantityP = Convert.ToInt32(quantity);
+            TAGLIE t = db.TAGLIE.Where(x => x.IdProdotto == idP && x.TagliaProdotto == taglia).FirstOrDefault();
+
+            t.QuantitaTaglia -= quantityP;
+
+            
+            return Json(t, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult ListaAdmin()

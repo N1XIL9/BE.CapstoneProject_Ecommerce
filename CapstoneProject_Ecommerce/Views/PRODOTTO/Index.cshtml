@@ -4,27 +4,27 @@
     ViewBag.Title = "Index";
 }
 
+@*<div class="row ">*@
+
+@*<div class="col-6 col-md-6 mx-0 text-center">*@
 <div class="flexCard ">
 
+    <div id="messFull">
 
-    @if (ViewBag.Message != null && ViewBag.Message != "")
-    {
-        <div class="alert-danger">
-            @ViewBag.Message
-        </div>
-    }
+    </div>
+
 
     @foreach (var item in Model)
     {
 
-        <div class="card fade-in-right" style="width: 12rem;">
+        <div class="card fade-in-right" style="width: 12rem; margin-bottom:40px;">
 
             <img class="ImgCard" src="~/Content/img/@Html.DisplayFor(modelItem => item.Foto)" />
             <div class="card-body">
-                <h5 class="card-title">@Html.DisplayFor(modelItem => item.NomeProdotto)</h5>
+                <h5 class="card-title fw-bold text-light">@Html.DisplayFor(modelItem => item.NomeProdotto)</h5>
             </div>
             <div class="card-body">
-                <p class="card-text">@Html.DisplayFor(modelItem => item.Descrizione)</p>
+                @*<p class="card-text">@Html.DisplayFor(modelItem => item.Descrizione)</p>*@
             </div>
 
 
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="qta">
-                    <h5 class="card-title quantita"><input class="InpCard" type="number" /></h5>
+                    <h5 class="card-title quantita"><input class="InpCard" id="@item.IdProdotto" name="InpCard" type="number" placeholder="Qta" /></h5>
                 </div>
             </div>
             <p class="GuidaTaglie">
@@ -43,7 +43,7 @@
 
 
             <div class="card-text">
-                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Prezzo)</h5>
+                <h5 class="card-title fw-bold">@Html.DisplayFor(modelItem => item.Prezzo)</h5>
             </div>
 
 
@@ -54,16 +54,149 @@
     }
 </div>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var baseUrl = "/Dettaglio/Index/";
-            $(".OrdinaBtn").click(function () {
-                var id = $(this).data("id");
-                var taglia = $(this).parent("#contBtn").siblings(".ContFlex").children(".card-text").children(".taglia").children("option:selected").text();
-                var quantity = $(this).parent("#contBtn").siblings(".ContFlex").children(".qta").children(".quantita").children("input").val();
-               
 
-                location.href = baseUrl + "?id=" + id + "&quantity=" + quantity + "&taglia=" + taglia;
-            });
+@*</div>*@
+
+<div class=" p-0  overflow-hidden mx-auto text-center contVideo">
+    <div class="row " id="ContVid">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="position-relative">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <div id="video-player1" class="embed-responsive-item"></div>
+                    <div id="video-player2" class="embed-responsive-item"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="position-relative">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <div id="video-player3" class="embed-responsive-item"></div>
+                    <div id="video-player4" class="embed-responsive-item"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*</div>*@
+
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var baseUrl = "/Dettaglio/Index/";
+
+        $(".InpCard").change(function ()
+        {
+            var id = $(this).attr("id");
+            var taglia = $(this).parent(".card-title").parent(".qta").siblings(".card-text").children(".taglia").children("option:selected").text();
+            var quantity = $(this).val();
+            
+            $.ajax({
+                url: '/Prodotto/Check',
+                method: 'GET',
+                datatype:'Json',
+                data: { 'quantity': quantity, 'id': id, 'taglia': taglia },
+
+                success: function (a) {
+                   console.log(a)
+                    if (a.quantity < 0) {
+                        $("#messFull").append("<div class=\"alert alert-info\"> Quantità oltre la disponibilità </div>");
+                    }
+                }
+            })
         })
-    </script>
+
+        $(".OrdinaBtn").click(function () {
+            var id = $(this).data("id");
+            var taglia = $(this).parent("#contBtn").siblings(".ContFlex").children(".card-text").children(".taglia").children("option:selected").text();
+            var quantity = $(this).parent("#contBtn").siblings(".ContFlex").children(".qta").children(".quantita").children("input").val();
+           
+
+            location.href = baseUrl + "?id=" + id + "&quantity=" + quantity + "&taglia=" + taglia;
+        });
+        
+    })
+</script>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+
+
+<script>
+    // Creo una variabile globale per il player di YouTube
+    var player;
+
+    // Inizializzo il player di YouTube quando la pagina è stata caricata
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('video-player1', {
+            videoId: 'AvJrw71Zrik',
+            width: 600,
+            height: 300,
+            playerVars: {
+                autoplay: 0,
+                mute: 1,
+                controls: 1,
+                rel: 0,
+                showinfo: 0
+            }
+        });
+        player = new YT.Player('video-player2', {
+            videoId: 'CTgzEoItPRU',
+            width: 600,
+            height: 300,
+            playerVars: {
+                autoplay: 0,
+                mute: 1,
+                controls: 1,
+                rel: 0,
+                showinfo: 0
+            }
+        });
+        player = new YT.Player('video-player3', {
+            videoId: 'hz1LPfKmET4',
+            width: 600,
+            height: 300,
+            playerVars: {
+                autoplay: 0,
+                mute: 1,
+                controls: 1,
+                rel: 0,
+                showinfo: 0
+            }
+        });
+        player = new YT.Player('video-player4', {
+            videoId: 'zJwaTX_CH8k',
+            width: 600,
+            height: 300,
+            playerVars: {
+                autoplay: 0,
+                mute: 1,
+                controls: 1,
+                rel: 0,
+                showinfo: 0
+            }
+        });
+    }
+
+
+    // Aggiungo un evento di passaggio del mouse sul div
+    $('#video-player').on('mouseenter', function () {
+        // Avvio la riproduzione del video quando il puntatore del mouse entra nel div
+        player.playVideo();
+    }).on('mouseleave', function () {
+        // Fermo la riproduzione del video quando il puntatore del mouse esce dal div
+        player.pauseVideo();
+    });
+</script>
+
+
+
+
+
+
+
+
