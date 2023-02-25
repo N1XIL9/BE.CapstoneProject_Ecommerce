@@ -78,7 +78,7 @@ namespace CapstoneProject_Ecommerce.Controllers
                     // Imposta le informazioni per inviare l'email tramite SMTP
                     var smtpClient = new SmtpClient("smtp.live.com", 25)
                     {
-                        Credentials = new NetworkCredential("nicolalerra@hotmail.it", "nicolalerrapoli1991"),
+                        Credentials = new NetworkCredential("nicolalerra@hotmail.it", "pss"),
                         EnableSsl = true
                     };
 
