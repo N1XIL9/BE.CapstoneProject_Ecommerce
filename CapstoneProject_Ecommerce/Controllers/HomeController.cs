@@ -1,7 +1,10 @@
 ﻿using CapstoneProject_Ecommerce.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -65,6 +68,67 @@ namespace CapstoneProject_Ecommerce.Controllers
             return View();
         }
 
+        [HttpPost]
 
+ 
+            public ActionResult Contatti(Email email)
+            {
+                if (ModelState.IsValid)
+                {
+                    // Imposta le informazioni per inviare l'email tramite SMTP
+                    var smtpClient = new SmtpClient("smtp.live.com", 25)
+                    {
+                        Credentials = new NetworkCredential("nicolalerra@hotmail.it", "nicolalerrapoli1991"),
+                        EnableSsl = true
+                    };
+
+                    // Crea il messaggio email
+                    var message = new MailMessage()
+                    {
+                        From = new MailAddress(email.EmailMittente),
+                        Subject = email.Oggetto,
+                        Body = email.Messaggio
+                    };
+
+                    // Aggiunge il destinatario
+                    message.To.Add("nicolalerra@hotmail.it");
+
+                    // Invia l'email
+                    smtpClient.Send(message);
+
+                    return RedirectToAction("Grazie"); // sostituisci "Grazie" con il nome dell'azione che restituisce la view di ringraziamento
+                }
+                return Contatti(email); // sostituisci "View" con il nome della view che mostra il form per inviare l'email
+            }
     }
 }
+    
+
+    //public ActionResult Contatti(Email e)
+
+    //    {
+    //        ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+
+    //        MailAddress mittente = new MailAddress(e.EmailMittente);
+    //        MailAddress destinatario = new MailAddress("nicolalerra@hotmail.it");
+
+    //        MailMessage m = new MailMessage();
+    //        m.Subject = "Email invaita dal sito";
+    //        m.Body = e.Messaggio;
+    //        m.From = mittente;
+    //        m.To.Add(destinatario);
+
+    //        SmtpClient client = new SmtpClient();
+    //        client.Host = "smtp.live.com";
+    //        client.Port = 465;
+    //        //client.EnableSsl = true;
+    //        client.UseDefaultCredentials = false;
+    //        client.Credentials = new NetworkCredential("nicolalerra@hotmail.it", "nicolalerrapoli1991");
+
+
+    //        client.Send(m);
+
+    //        return View();
+    //    }
+
+    //}

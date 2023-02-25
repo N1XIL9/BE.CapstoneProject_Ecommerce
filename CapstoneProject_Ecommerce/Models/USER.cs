@@ -42,6 +42,12 @@ namespace CapstoneProject_Ecommerce.Models
         [Required]
         [StringLength(50)]
         public string Ruolo { get; set; }
+        
+        public string Oggetto { get;set; }
+        
+        public string Messaggio { get; set; }
+
+
 
         //AUTENTICAZIONE
         public static bool Autenticato(string username, string password)

@@ -144,8 +144,13 @@
     <Compile Include="Migrations\202302060931079_addColumnIdProdotto.designer.cs">
       <DependentUpon>202302060931079_addColumnIdProdotto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302241624425_user_oggetto_messaggio.cs" />
+    <Compile Include="Migrations\202302241624425_user_oggetto_messaggio.designer.cs">
+      <DependentUpon>202302241624425_user_oggetto_messaggio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DETTAGLIO.cs" />
+    <Compile Include="Models\Email.cs" />
     <Compile Include="Models\ModelDBcontext.cs" />
     <Compile Include="Models\ORDINE.cs" />
     <Compile Include="Models\PRODOTTO.cs" />
@@ -254,6 +259,7 @@
     <Content Include="Views\ORDINE\Details.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\PRODOTTO\GuidaAlleTaglie.cshtml" />
+    <Content Include="Views\Home\Contatti.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -269,6 +275,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302060931079_addColumnIdProdotto.resx">
       <DependentUpon>202302060931079_addColumnIdProdotto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302241624425_user_oggetto_messaggio.resx">
+      <DependentUpon>202302241624425_user_oggetto_messaggio.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
