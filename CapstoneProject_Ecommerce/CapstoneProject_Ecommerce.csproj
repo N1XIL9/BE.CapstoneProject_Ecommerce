@@ -181,10 +181,11 @@
     <Content Include="Content\Img\3.jpg" />
     <Content Include="Content\Img\cover1.jpg" />
     <Content Include="Content\Img\logo.png" />
-    <Content Include="Content\Img\SHOP %281%29.mp4" />
-    <Content Include="Content\Img\SHOP %282%29.mp4" />
-    <Content Include="Content\Img\SHOP %283%29.mp4" />
-    <Content Include="Content\Img\SHOP %284%29.jpg" />
+    <Content Include="Content\Img\SHOP%284%29.jpg" />
+    <Content Include="Content\Img\SHOP.jpg" />
+    <Content Include="Content\Img\SHOP0.mp4" />
+    <Content Include="Content\Img\SHOP7.mp4" />
+    <Content Include="Content\Img\SHOPbunn.mp4" />
     <Content Include="Content\Img\SHOP_bunner.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

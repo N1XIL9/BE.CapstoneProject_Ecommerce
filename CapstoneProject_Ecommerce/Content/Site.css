@@ -167,6 +167,11 @@ h2{
     border-radius: 0px 0px 17px 17px;
 }
 
+#carouselExampleInterval {
+    width: 100%;
+}
+
+
 .userName, .passWord {
     color: black;
     font-family: 'Roboto', sans-serif;
