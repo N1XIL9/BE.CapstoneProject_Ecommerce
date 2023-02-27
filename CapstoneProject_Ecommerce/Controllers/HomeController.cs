@@ -104,31 +104,4 @@ namespace CapstoneProject_Ecommerce.Controllers
 }
     
 
-    //public ActionResult Contatti(Email e)
-
-    //    {
-    //        ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
-
-    //        MailAddress mittente = new MailAddress(e.EmailMittente);
-    //        MailAddress destinatario = new MailAddress("nicolalerra@hotmail.it");
-
-    //        MailMessage m = new MailMessage();
-    //        m.Subject = "Email invaita dal sito";
-    //        m.Body = e.Messaggio;
-    //        m.From = mittente;
-    //        m.To.Add(destinatario);
-
-    //        SmtpClient client = new SmtpClient();
-    //        client.Host = "smtp.live.com";
-    //        client.Port = 465;
-    //        //client.EnableSsl = true;
-    //        client.UseDefaultCredentials = false;
-    //        client.Credentials = new NetworkCredential("nicolalerra@hotmail.it", "nicolalerrapoli1991");
-
-
-    //        client.Send(m);
-
-    //        return View();
-    //    }
-
-    //}
+   
