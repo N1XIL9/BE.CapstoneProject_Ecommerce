@@ -100,6 +100,11 @@ namespace CapstoneProject_Ecommerce.Controllers
                 }
                 return Contatti(email); // sostituisci "View" con il nome della view che mostra il form per inviare l'email
             }
+
+        public ActionResult ABoutMe () 
+        {
+            return View();
+        }
     }
 }
     

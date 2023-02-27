@@ -177,10 +177,21 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Img\1.jpg" />
+    <Content Include="Content\Img\10.png" />
+    <Content Include="Content\Img\11.png" />
+    <Content Include="Content\Img\12.png" />
+    <Content Include="Content\Img\13.png" />
     <Content Include="Content\Img\2.jpg" />
     <Content Include="Content\Img\3.jpg" />
+    <Content Include="Content\Img\4.png" />
+    <Content Include="Content\Img\5.png" />
+    <Content Include="Content\Img\6.png" />
+    <Content Include="Content\Img\7.png" />
+    <Content Include="Content\Img\8.png" />
+    <Content Include="Content\Img\9.png" />
     <Content Include="Content\Img\cover1.jpg" />
     <Content Include="Content\Img\logo.png" />
+    <Content Include="Content\Img\PhotoRoom_20221202_215530.jpg" />
     <Content Include="Content\Img\SHOP%284%29.jpg" />
     <Content Include="Content\Img\SHOP.jpg" />
     <Content Include="Content\Img\SHOP0.mp4" />
@@ -261,6 +272,7 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\PRODOTTO\GuidaAlleTaglie.cshtml" />
     <Content Include="Views\Home\Contatti.cshtml" />
+    <Content Include="Views\Home\ABoutMe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
