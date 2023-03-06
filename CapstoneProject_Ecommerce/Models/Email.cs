@@ -9,6 +9,7 @@ namespace CapstoneProject_Ecommerce.Models
     public class Email
     {
         [Required]
+        [Display (Name="Email Mittente")]
         public string EmailMittente { get; set; }
 
         [Required]
