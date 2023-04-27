@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -70,35 +71,49 @@ namespace CapstoneProject_Ecommerce.Controllers
 
         [HttpPost]
 
- 
-            public ActionResult Contatti(Email email)
-            {
-                if (ModelState.IsValid)
-                {
-                    // Imposta le informazioni per inviare l'email tramite SMTP
-                    var smtpClient = new SmtpClient("smtp.live.com", 25)
-                    {
-                        Credentials = new NetworkCredential("nicolalerra@hotmail.it", "pss"),
-                        EnableSsl = true
-                    };
 
-                    // Crea il messaggio email
-                    var message = new MailMessage()
-                    {
-                        From = new MailAddress(email.EmailMittente),
-                        Subject = email.Oggetto,
-                        Body = email.Messaggio
-                    };
+        public ActionResult Contatti(Email email)
+        {
 
-                    // Aggiunge il destinatario
-                    message.To.Add("nicolalerra@hotmail.it");
 
-                    // Invia l'email
-                    smtpClient.Send(message);
 
-                    return RedirectToAction("Grazie"); // sostituisci "Grazie" con il nome dell'azione che restituisce la view di ringraziamento
-                }
-                return Contatti(email); // sostituisci "View" con il nome della view che mostra il form per inviare l'email
+            MailMessage mm = new MailMessage();
+            MailAddress fromAddress = new MailAddress(email.EmailMittente);
+            mm.From = fromAddress;
+            mm.To.Add("nicolalerra@gmail.com");
+            mm.Subject = email.Oggetto;
+
+
+
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+            NetworkCredential nc = new NetworkCredential("nicolalerra@gmail.com", "gmiufcbbchqhnauf");
+            smtp.Credentials = nc;
+
+            mm.Body = email.Messaggio;
+
+            smtp.Send(mm);
+
+
+
+
+            //MailMessage mm = new MailMessage();
+            //mm.From = new MailAddress(email.EmailMittente); // Imposta l'indirizzo email del mittente
+            //mm.To.Add("nicolalerra@gmail.com");
+            //mm.Subject = email.Oggetto;
+            //mm.Body = email.Messaggio;
+            //SmtpClient smtp = new SmtpClient();
+            //smtp.Host = "smtp.gmail.com";
+            //smtp.Port = 587;
+            //smtp.EnableSsl = true;
+            //smtp.Credentials = new NetworkCredential("nicolalerra@gmail.com", "gmiufcbbchqhnauf"); // Imposta le credenziali di autenticazione
+            //smtp.Send(mm);
+
+
+
+            return Contatti(email); // sostituisco "View" con il nome della view che mostra il form per inviare l'email
             }
 
         public ActionResult ABoutMe () 
