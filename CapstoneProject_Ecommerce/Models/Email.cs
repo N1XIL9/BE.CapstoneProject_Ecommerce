@@ -10,7 +10,7 @@ namespace CapstoneProject_Ecommerce.Models
     {
         [Required]
         [Display (Name="Email Mittente")]
-        public string EmailMittente { get; set; }
+        public string mittenteEmail { get; set; }
 
         [Required]
 
