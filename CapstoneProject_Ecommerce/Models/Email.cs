@@ -19,5 +19,5 @@ namespace CapstoneProject_Ecommerce.Models
         [Required]
 
         public string Messaggio { get; set; }
-    }
+    }    
 }

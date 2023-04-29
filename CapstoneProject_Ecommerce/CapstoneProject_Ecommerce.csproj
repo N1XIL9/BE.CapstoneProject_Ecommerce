@@ -274,6 +274,7 @@
     <Content Include="Views\PRODOTTO\GuidaAlleTaglie.cshtml" />
     <Content Include="Views\Home\Contatti.cshtml" />
     <Content Include="Views\Home\ABoutMe.cshtml" />
+    <Content Include="Views\Home\EmailDone.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

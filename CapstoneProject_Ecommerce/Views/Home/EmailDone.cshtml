@@ -1,0 +1,25 @@
+﻿@model CapstoneProject_Ecommerce.Models.USER
+
+@{
+    ViewBag.Title = "EmailDone";
+}
+
+<h2>Contatti</h2>
+<div class="container" id="ContEdit">
+
+    <div>
+        @Html.ActionLink("HOME", "Index", "PRODOTTO")
+    </div>
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal ContEditBox2 p-2 flex-column">
+             
+            <h2 style="color:green"> Email inviata con successo!</h2>
+            
+        </div>
+    }
+</div>
